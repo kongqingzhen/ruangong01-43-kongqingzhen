@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <package name="struts2" extends="struts-default" namespace="/">
+        <action name="login" class="Action.LoginAction">
+            <result name="success_user" type="chain">gamemessage_user</result>
+            <result name="success_root" type="chain">gamemessage_root</result>
+            <result name="Login">/login.jsp</result>
+        </action>
+        <action name="check" class="Action.checks">
+            <result name="success">/login.jsp</result>
+            <result name="input">/register.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="gamemessage_root" class="Action.book_message">
+            <result name="success">/main_for_root.jsp</result>
+            <result name="error">/login.jsp</result>
+        </action>
+        <action name="gamemessage_user" class="Action.book_message">
+            <result name="success">/main.jsp</result>
+            <result name="error">/login.jsp</result>
+        </action>
+        <action name="rootlogin" class="useraction" method="rootlogin">
+            <result name="success" >/mainforroot.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="passupdate" class="useraction" method="update">
+            <result name="success">/main.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="findgame" class="Action.findbookAction">
+            <result name="success_root">/finded_game_root.jsp</result>
+            <result name="success_user">/finded_game_user.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="updategame" class="Action.upbookAction">
+            <result name="success_root">/main_root.jsp</result>
+            <result name="error">/update.jsp</result>
+        </action>
+        <action name="insertgame" class="Action.inbookAction">
+            <result name="success">/main_root.jsp</result>
+            <result name="error">/insert.jsp</result>
+        </action>
+        <action name="delectgame" class="Action.debookAction">
+            <result name="success_root">/main_root.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+    </package>
+</struts>

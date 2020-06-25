@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="url">jdbc:mysql://localhost:3306/players?useUnicode=true&amp;characterEncoding=UTF-8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property>
+        <property name="driverClassName">com.mysql.cj.jdbc.Driver</property>
+        <property name="username">root</property>
+        <property name="password">123456</property>
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!-- Echo all executed SQL to stdout -->
+        <property name="connection.provider_class">
+            com.alibaba.druid.support.hibernate.DruidConnectionProvider
+        </property>
+        <property name="filters">stat</property>
+
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+        <property name="connection.url"><![CDATA[jdbc:mysql://localhost:3306/players?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC]]></property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <mapping class="kong.entity.GamesEntity"></mapping>
+        <mapping class="kong.entity.UsersEntity"></mapping>
+    </session-factory>
+
+</hibernate-configuration>
